@@ -1,21 +1,21 @@
-# appname_kebab_case
+# url-shortening
 Что бы начать, замените в названиях и содержаниях всех файлах:
-1. `appname_kebab_case` - на название вашего приложение в [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case)
-2. `appname_snake_case` - на название вашего приложение в [snake_case](https://developer.mozilla.org/en-US/docs/Glossary/Snake_case)
+1. `url-shortening` - на название вашего приложение в [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case)
+2. `url_shortening` - на название вашего приложение в [snake_case](https://developer.mozilla.org/en-US/docs/Glossary/Snake_case)
 
-После замените это описание на описание вашего appname_kebab_case.
+После замените это описание на описание вашего url-shortening.
 
 ## Развертывание для разработки
 ```bash
-git clone https://github.com/emptybutton/appname_kebab_case.git
-docker compose -f appname_kebab_case/deployments/dev/docker-compose.yaml up
+git clone https://github.com/emptybutton/url-shortening.git
+docker compose -f url-shortening/deployments/dev/docker-compose.yaml up
 ```
 
 В контейнере используется своё виртуальное окружение, сохранённое отдельным volume-ом, поэтому можно не пересобирать образ при изменении зависимостей.
 
 Для ide можно сделать отдельное виртуальное окружение в папке проекта:
 ```bash
-uv sync --extra dev --directory appname_snake_case
+uv sync --extra dev --directory url_shortening
 ```
 
 > [!NOTE]

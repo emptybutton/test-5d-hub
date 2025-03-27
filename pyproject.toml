@@ -1,7 +1,7 @@
 [project]
-name = "appname_kebab_case"
+name = "url-shortening"
 version = "0.1.0"
-description = "*description*"
+description = "Тестовое задание для компании 5D HUB."
 authors = [
     {name = "Alexander Smolin", email = "88573504+emptybutton@users.noreply.github.com"}
 ]
@@ -14,7 +14,6 @@ dependencies = [
     "typenv==0.2.0",
     "dishka==1.4.2",
     "fastapi==0.115.2",
-    "PyJWT==2.10.1",
     "sqlalchemy==2.0.38",
     "psycopg[binary]==3.2.5",
     "alembic==1.14.1",
@@ -38,10 +37,10 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/appname_snake_case"]
+packages = ["src/url_shortening"]
 
 [project.scripts]
-appname_kebab_case-web-service = "appname_snake_case.entrypoint.web_service.__main__:main"
+fastapi-dev = "url_shortening.main.fastapi.__main__:main"
 
 [tool.mypy]
 strict = true
@@ -60,14 +59,16 @@ select = [
     "Q", "RET", "SLF", "SLOT", "SIM", "TID252", "TCH", "ARG", "PTH", "ERA", "TRY",
     "PERF", "INP", "I", "S", "FAST", "TID", "TCH", "INT"
 ]
-ignore = ["N818", "RUF009", "UP018", "PLR6301", "PLR0913", "PLW0108", "TC006"]
+ignore = [
+    "N818", "RUF009", "UP018", "PLR6301", "PLR0913", "PLW0108", "TC006", "S101"
+]
 
 [tool.ruff.lint.isort]
 lines-after-imports = 2
 
 [tool.ruff.lint.per-file-ignores]
-"src/appname_snake_case/entities/*" = ["PLR2004"]
-"src/appname_snake_case/application/*" = ["PLR0917"]
+"src/url_shortening/entities/*" = ["PLR2004"]
+"src/url_shortening/application/*" = ["PLR0917"]
 "tests/*" = ["S101", "PLR0124", "PLR0917", "S106", "C901"]
 "*/alembic/versions/*" = ["S101"]
 "__init__.py" = ["PLC0414"]

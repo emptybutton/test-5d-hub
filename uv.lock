@@ -39,54 +39,6 @@ wheels = [
 ]
 
 [[package]]
-name = "appname-kebab-case"
-version = "0.1.0"
-source = { editable = "." }
-dependencies = [
-    { name = "alembic" },
-    { name = "dishka" },
-    { name = "fastapi" },
-    { name = "psycopg", extra = ["binary"] },
-    { name = "pyjwt" },
-    { name = "sqlalchemy" },
-    { name = "typenv" },
-    { name = "uvicorn", extra = ["standard"] },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "dirty-equals" },
-    { name = "httpx" },
-    { name = "httpx-ws" },
-    { name = "mypy", extra = ["faster-cache"] },
-    { name = "pytest" },
-    { name = "pytest-asyncio" },
-    { name = "pytest-cov" },
-    { name = "ruff" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "alembic", specifier = "==1.14.1" },
-    { name = "dirty-equals", marker = "extra == 'dev'", specifier = "==0.8.0" },
-    { name = "dishka", specifier = "==1.4.2" },
-    { name = "fastapi", specifier = "==0.115.2" },
-    { name = "httpx", marker = "extra == 'dev'", specifier = "==0.27.2" },
-    { name = "httpx-ws", marker = "extra == 'dev'", specifier = "==0.7.0" },
-    { name = "mypy", extras = ["faster-cache"], marker = "extra == 'dev'", specifier = "==1.15.0" },
-    { name = "psycopg", extras = ["binary"], specifier = "==3.2.5" },
-    { name = "pyjwt", specifier = "==2.10.1" },
-    { name = "pytest", marker = "extra == 'dev'", specifier = "==8.3.4" },
-    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = "==0.25.3" },
-    { name = "pytest-cov", marker = "extra == 'dev'", specifier = "==6.0.0" },
-    { name = "ruff", marker = "extra == 'dev'", specifier = "==0.9.7" },
-    { name = "sqlalchemy", specifier = "==2.0.38" },
-    { name = "typenv", specifier = "==0.2.0" },
-    { name = "uvicorn", extras = ["standard"], specifier = "==0.30.6" },
-]
-provides-extras = ["dev", "prod"]
-
-[[package]]
 name = "certifi"
 version = "2025.1.31"
 source = { registry = "https://pypi.org/simple" }
@@ -474,15 +426,6 @@ wheels = [
 ]
 
 [[package]]
-name = "pyjwt"
-version = "2.10.1"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/e7/46/bd74733ff231675599650d3e47f361794b22ef3e3770998dda30d3b63726/pyjwt-2.10.1.tar.gz", hash = "sha256:3cc5772eb20009233caf06e9d8a0577824723b44e6648ee0a2aedb6cf9381953", size = 87785 }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/61/ad/689f02752eeec26aed679477e80e632ef1b682313be70793d798c1d5fc8f/PyJWT-2.10.1-py3-none-any.whl", hash = "sha256:dcdd193e30abefd5debf142f9adfcdd2b58004e644f25406ffaebd50bd98dacb", size = 22997 },
-]
-
-[[package]]
 name = "pytest"
 version = "8.3.4"
 source = { registry = "https://pypi.org/simple" }
@@ -644,6 +587,52 @@ sdist = { url = "https://files.pythonhosted.org/packages/43/0f/fa4723f22942480be
 wheels = [
     { url = "https://files.pythonhosted.org/packages/0f/dd/84f10e23edd882c6f968c21c2434fe67bd4a528967067515feca9e611e5e/tzdata-2025.1-py2.py3-none-any.whl", hash = "sha256:7e127113816800496f027041c570f50bcd464a020098a3b6b199517772303639", size = 346762 },
 ]
+
+[[package]]
+name = "url-shortening"
+version = "0.1.0"
+source = { editable = "." }
+dependencies = [
+    { name = "alembic" },
+    { name = "dishka" },
+    { name = "fastapi" },
+    { name = "psycopg", extra = ["binary"] },
+    { name = "sqlalchemy" },
+    { name = "typenv" },
+    { name = "uvicorn", extra = ["standard"] },
+]
+
+[package.optional-dependencies]
+dev = [
+    { name = "dirty-equals" },
+    { name = "httpx" },
+    { name = "httpx-ws" },
+    { name = "mypy", extra = ["faster-cache"] },
+    { name = "pytest" },
+    { name = "pytest-asyncio" },
+    { name = "pytest-cov" },
+    { name = "ruff" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "alembic", specifier = "==1.14.1" },
+    { name = "dirty-equals", marker = "extra == 'dev'", specifier = "==0.8.0" },
+    { name = "dishka", specifier = "==1.4.2" },
+    { name = "fastapi", specifier = "==0.115.2" },
+    { name = "httpx", marker = "extra == 'dev'", specifier = "==0.27.2" },
+    { name = "httpx-ws", marker = "extra == 'dev'", specifier = "==0.7.0" },
+    { name = "mypy", extras = ["faster-cache"], marker = "extra == 'dev'", specifier = "==1.15.0" },
+    { name = "psycopg", extras = ["binary"], specifier = "==3.2.5" },
+    { name = "pytest", marker = "extra == 'dev'", specifier = "==8.3.4" },
+    { name = "pytest-asyncio", marker = "extra == 'dev'", specifier = "==0.25.3" },
+    { name = "pytest-cov", marker = "extra == 'dev'", specifier = "==6.0.0" },
+    { name = "ruff", marker = "extra == 'dev'", specifier = "==0.9.7" },
+    { name = "sqlalchemy", specifier = "==2.0.38" },
+    { name = "typenv", specifier = "==0.2.0" },
+    { name = "uvicorn", extras = ["standard"], specifier = "==0.30.6" },
+]
+provides-extras = ["dev", "prod"]
 
 [[package]]
 name = "uvicorn"

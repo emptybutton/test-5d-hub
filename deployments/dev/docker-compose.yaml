@@ -1,4 +1,4 @@
-name: appname_kebab_case
+name: url-shortening
 
 services:
   backend:
@@ -6,8 +6,8 @@ services:
       context: ../../
       dockerfile: deployments/dev/backend/Dockerfile
       tags:
-        - "appname_kebab_case-backend:dev"
-    container_name: appname_kebab_case-backend
+        - "url-shortening-backend:dev"
+    container_name: url-shortening-backend
     volumes:
       - ../..:/app
       - backend-data:/run/app
@@ -17,9 +17,10 @@ services:
       postgres:
         condition: service_healthy
     environment:
-      JWT_SECRET: super-secret-jwt-secret
+      PUBLIC_URL: http://localhost:8000
       POSTGRES_URL: postgresql+psycopg://root:root@postgres/root
-    command: appname_kebab_case-web-service
+      SHORTENED_URL_ALIAS_LENGHT: 16
+    command: fastapi-dev
     healthcheck:
       test: wget backend:8000/healthcheck -q -O /dev/null
       start_period: 1m
@@ -28,7 +29,7 @@ services:
 
   postgres:
     image: postgres:16.3-alpine3.19
-    container_name: appname_kebab_case-postgres
+    container_name: url-shortening-postgres
     labels:
       deployment: dev
     volumes:
