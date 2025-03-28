@@ -2,7 +2,7 @@ from enum import Enum
 
 
 class Tag(Enum):
-    url = "url"
+    url = "Url"
     monitoring = "Monitoring"
 
 
