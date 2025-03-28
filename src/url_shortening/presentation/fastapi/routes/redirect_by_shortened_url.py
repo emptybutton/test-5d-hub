@@ -1,8 +1,7 @@
 from typing import Annotated, Any
 
 from dishka.integrations.fastapi import FromDishka, inject
-from fastapi import APIRouter, Query, status
-from fastapi.params import Param
+from fastapi import APIRouter, Path, Query, status
 from fastapi.responses import JSONResponse, Response
 
 from url_shortening.application.view_original_url_by_shortened_url import (
@@ -21,7 +20,7 @@ redirect_by_shortened_url_router = APIRouter()
 
 
 @redirect_by_shortened_url_router.get(
-    "/{input_text}",
+    "/{shortenedUrlPart}",
     responses={
         status.HTTP_307_TEMPORARY_REDIRECT: {
             "model": NoDataSchema,
@@ -38,13 +37,13 @@ redirect_by_shortened_url_router = APIRouter()
 @inject
 async def redirect_by_shortened_url_route(
     view_original_url_by_shortened_url: FromDishka[
-        ViewOriginalUrlByShortenedUrl[Any, OriginalUrlView | None]
+        ViewOriginalUrlByShortenedUrl[Any, OriginalUrlView]
     ],
-    input_text: Annotated[str, Param(alias="input")],
-    use_alias: Annotated[bool, Query(default=False, alias="alias")],
+    shortened_url_part: Annotated[str, Path(alias="shortenedUrlPart")],
+    as_alias: Annotated[bool, Query(alias="asAlias")] = False,
 ) -> Response:
     original_url_view = await view_original_url_by_shortened_url(
-        input_text, use_alias
+        shortened_url_part, as_alias
     )
 
     if original_url_view is None:

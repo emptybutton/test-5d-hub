@@ -86,4 +86,6 @@ class ShortenedUrlReaderFromPostgres(
     def _create_shortened_url_text_with_alias(
         self, shortened_url: ShortenedUrl
     ) -> str:
-        return f"{self.shortened_url_prefix}/{shortened_url.alias}?alias=true"
+        return (
+            f"{self.shortened_url_prefix}/{shortened_url.alias.text}?asAlias=true"
+        )

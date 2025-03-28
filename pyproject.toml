@@ -43,6 +43,7 @@ packages = ["src/url_shortening"]
 fastapi-dev = "url_shortening.main.fastapi.__main__:main"
 
 [tool.mypy]
+mypy_path = "$MYPY_CONFIG_FILE_DIR/src:$MYPY_CONFIG_FILE_DIR/tests"
 strict = true
 no_namespace_packages = true
 allow_redefinition = true

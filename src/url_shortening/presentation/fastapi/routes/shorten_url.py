@@ -41,6 +41,6 @@ async def shorten_url_route(
     response_body = (
         ShortenedUrlSchema
         .of(shortened_url_view)
-        .model_dump_json(by_alias=True)
+        .model_dump(mode="json", by_alias=True)
     )
     return JSONResponse(response_body, status_code=status.HTTP_201_CREATED)

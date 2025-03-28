@@ -17,10 +17,16 @@ mapper_registry.map_imperatively(
     shortened_url_table,
     properties=dict(
         id=shortened_url_table.c.id,
-        alias=composite(lambda text: Alias(text=cast(str, text))),
+        alias=composite(
+            lambda text: Alias(text=cast(str, text)),
+            shortened_url_table.c.alias_text,
+        ),
         original_url=composite(
             lambda text: OriginalUrl(text=cast(str, text)),
             shortened_url_table.c.original_url_text,
         )
     ),
 )
+
+Alias.__composite_values__ = lambda self: (self.text,)  # type: ignore[attr-defined]
+OriginalUrl.__composite_values__ = lambda self: (self.text,)  # type: ignore[attr-defined]
