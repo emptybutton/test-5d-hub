@@ -1,21 +1,17 @@
 # url-shortening
-Что бы начать, замените в названиях и содержаниях всех файлах:
-1. `url-shortening` - на название вашего приложение в [kebab-case](https://developer.mozilla.org/en-US/docs/Glossary/Kebab_case)
-2. `url_shortening` - на название вашего приложение в [snake_case](https://developer.mozilla.org/en-US/docs/Glossary/Snake_case)
-
-После замените это описание на описание вашего url-shortening.
+Тестовое задание для компании 5D HUB.
 
 ## Развертывание для разработки
 ```bash
-git clone https://github.com/emptybutton/url-shortening.git
-docker compose -f url-shortening/deployments/dev/docker-compose.yaml up
+git clone https://github.com/emptybutton/test-5d-hub.git
+docker compose -f test-5d-hub/deployments/dev/docker-compose.yaml up
 ```
 
 В контейнере используется своё виртуальное окружение, сохранённое отдельным volume-ом, поэтому можно не пересобирать образ при изменении зависимостей.
 
 Для ide можно сделать отдельное виртуальное окружение в папке проекта:
 ```bash
-uv sync --extra dev --directory url_shortening
+uv sync --extra dev --directory test-5d-hub
 ```
 
 > [!NOTE]
